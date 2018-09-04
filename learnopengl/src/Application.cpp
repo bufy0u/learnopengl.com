@@ -26,6 +26,8 @@ const char *fragmentShaderSource = "#version 330 core\n"
 	"   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
 	"}\n\0";
 
+float visibility = 0.2f;
+
 int main()
 {
 	// glfw: initialize and configure
@@ -192,6 +194,8 @@ int main()
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, texture2);
 
+		ourShader.setFloat("u_Visibility", visibility);
+
 		// render container
 		ourShader.use();
 		glBindVertexArray(VAO);
@@ -223,8 +227,20 @@ void processInput(GLFWwindow *window)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
-}
 
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+	{
+		visibility += 0.001f;
+		if (visibility > 1.0f)
+			visibility = 1.0f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+	{
+		visibility -= 0.001f;
+		if (visibility < 0.0f)
+			visibility = 0.0f;
+	}
+}
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
 // ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
