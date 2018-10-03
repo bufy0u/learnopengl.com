@@ -398,6 +398,7 @@
     <Text Include="src\vendors\glm\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\shaders\lamp_fragment.shader" />
     <None Include="src\vendors\glm\detail\func_common.inl" />
     <None Include="src\vendors\glm\detail\func_common_simd.inl" />
     <None Include="src\vendors\glm\detail\func_exponential.inl" />
