@@ -201,6 +201,11 @@ int main()
 		lampShader.use();
 		lampShader.setMat4("projection", projection);
 		lampShader.setMat4("view", view);
+
+		// change the light's position values over time (can be done anywhere in the render loop actually, but try to do it at least before using the light source positions)
+		lightPos.x = 1.0f * sin(glfwGetTime()) * 2.0f;
+		lightPos.y = sin(glfwGetTime() / 2.0f) * 1.0f;
+
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, lightPos);
 		model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
