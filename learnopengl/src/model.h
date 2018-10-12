@@ -7,7 +7,9 @@
 #include "glm/gtc/matrix_transform.hpp" // glm::translate, glm::rotate, glm::scale, glm::perspective
 #include "stb_image/stb_image.h"
 
-#include <assimp/config.h>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
 #include "shader.h"
 #include "mesh.h"
@@ -18,6 +20,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+
 using namespace std;
 
 unsigned int TextureFromFile(const char *path, const string &directory, bool gamma = false);
@@ -197,7 +200,7 @@ private:
 		}
 		return textures;
 	}
-}
+};
 
 unsigned int TextureFromFile(const char *path, const string &directory, bool gamma)
 {
