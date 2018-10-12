@@ -1,6 +1,5 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <assimp/config.h>
 #include "stb_image/stb_image.h"
 
 #include "glm/glm.hpp"
@@ -10,7 +9,6 @@
 #include <iostream>
 #include "shader.h"
 #include "camera.h"
-
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
