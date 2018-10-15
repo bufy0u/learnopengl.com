@@ -1,18 +1,20 @@
+#pragma once
+
 #ifndef MODEL_H
 #define MODEL_H
 
-#include <glad/glad.h>
+#include <glad/glad.h> 
 
 #include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp" // glm::translate, glm::rotate, glm::scale, glm::perspective
+#include "glm/gtc/matrix_transform.hpp"
 #include "stb_image/stb_image.h"
 
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
+#include "assimp/Importer.hpp"
+#include "assimp/scene.h"
+#include "assimp/postprocess.h"
 
-#include "shader.h"
 #include "mesh.h"
+#include "shader.h"
 
 #include <string>
 #include <fstream>
@@ -202,6 +204,7 @@ private:
 	}
 };
 
+
 unsigned int TextureFromFile(const char *path, const string &directory, bool gamma)
 {
 	string filename = string(path);
@@ -241,5 +244,4 @@ unsigned int TextureFromFile(const char *path, const string &directory, bool gam
 
 	return textureID;
 }
-
 #endif
